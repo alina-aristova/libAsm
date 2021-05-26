@@ -6,6 +6,8 @@ SRCS =      ft_strlen.s\
 			ft_write.s\
 			ft_read.s\
 			ft_strdup.s
+BONUS_SRCS	=	 ft_list_size_bonus.s ft_list_sort_bonus.s ft_list_push_front_bonus.s 
+BONUS_OBJS	=	$(BONUS_SRCS:.s=.o)
 
 OBG =       $(SRCS:.s=.o)
 
@@ -16,9 +18,11 @@ all:        $(NAME)
 
 $(NAME):    $(OBG)
 			ar rcs $(NAME) $(OBG)
+bonus:			$(OBJS) $(BONUS_OBJS)
+				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 clean:
-			rm -f $(OBG)
+			rm -f $(OBG) $(BONUS_OBJS)
 
 
 fclean:		clean
